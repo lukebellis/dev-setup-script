@@ -14,11 +14,88 @@ wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | su
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
 sudo apt update && sudo apt install -y code
 
+# Install Visual Studio Code Extensions
+echo "Installing VS Code Extensions..."
+# Theme Extension
+code --install-extension tinkertrain.theme-panda
+echo "VS Code Panda Theme extension has been installed."
+
+# Docker support
+code --install-extension ms-azuretools.vscode-docker
+echo "Docker extension for VS Code has been installed."
+
+# Tailwind CSS IntelliSense
+code --install-extension bradlc.vscode-tailwindcss
+echo "Tailwind CSS IntelliSense extension has been installed."
+
+# ESLint
+code --install-extension dbaeumer.vscode-eslint
+echo "ESLint extension has been installed."
+
+# Prettier - Code formatter
+code --install-extension esbenp.prettier-vscode
+echo "Prettier - Code formatter extension has been installed."
+
+# GitLens
+code --install-extension eamodio.gitlens
+echo "GitLens extension has been installed."
+
+# Vetur for Vue.js
+code --install-extension octref.vetur
+echo "Vetur extension for Vue.js has been installed."
+
+# Live Server
+code --install-extension ritwickdey.LiveServer
+echo "Live Server extension has been installed."
+
+# Bracket Pair Colorizer
+code --install-extension CoenraadS.bracket-pair-colorizer-2
+echo "Bracket Pair Colorizer 2 extension has been installed."
+
+# Auto Rename Tag
+code --install-extension formulahendry.auto-rename-tag
+echo "Auto Rename Tag extension has been installed."
+
+# IntelliSense for CSS class names in HTML
+code --install-extension Zignd.html-css-class-completion
+echo "IntelliSense for CSS class names in HTML extension has been installed."
+
+# JavaScript (ES6) code snippets
+code --install-extension xabikos.JavaScriptSnippets
+echo "JavaScript (ES6) snippets extension has been installed."
+
+# Thunder Client for REST API Testing
+code --install-extension rangav.vscode-thunder-client
+echo "Thunder Client for REST API Testing has been installed."
+
+# Live Share for real-time collaboration
+code --install-extension MS-vsliveshare.vsliveshare
+echo "VS Code Live Share extension has been installed."
+
+# PHP Intelephense
+code --install-extension bmewburn.vscode-intelephense-client
+echo "PHP Intelephense extension has been installed."
+
+# Laravel Extension Pack
+code --install-extension onecentlin.laravel-extension-pack
+echo "Laravel Extension Pack has been installed."
+
+# Laravel Blade Snippets
+code --install-extension onecentlin.laravel-blade
+echo "Laravel Blade Snippets extension has been installed."
+
+# Laravel Artisan
+code --install-extension ryannaddy.laravel-artisan
+echo "Laravel Artisan commands extension has been installed."
+
+# Svelte for VS Code
+code --install-extension svelte.svelte-vscode
+echo "Svelte extension for VS Code has been installed."
+
 # Install Postman
 echo "Installing Postman..."
-wget -qO- https://dl.pstmn.io/download/latest/linux64 | tar -xzf - -C /opt/
-sudo ln -s /opt/Postman/Postman /usr/local/bin/postman
-echo "Postman has been installed and linked."
+sudo snap install postman
+echo "Postman has been installed."
 
 # Install Python
 echo "Installing Python..."
@@ -100,23 +177,9 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gp
 sudo apt update && sudo apt install -y 1password
 
 # Install Bitwarden Desktop App
-echo "Installing Bitwarden Desktop..."
-wget -O bitwarden.AppImage "https://vault.bitwarden.com/download/?app=desktop&platform=linux"
-chmod +x bitwarden.AppImage
-# Move to a more accessible location if desired, like /opt or /usr/local/bin
-sudo mv bitwarden.AppImage /usr/local/bin/bitwarden
-
-# Optionally create a desktop shortcut or integrate into system menus
-echo "Creating desktop entry for Bitwarden..."
-echo "[Desktop Entry]
-Type=Application
-Name=Bitwarden
-Exec=/usr/local/bin/bitwarden
-Icon=bitwarden
-Terminal=false
-Categories=Utility;Security;" | sudo tee /usr/share/applications/bitwarden.desktop
-
-echo "Bitwarden Desktop has been installed and is available in your applications menu."
+echo "Installing Bitwarden Desktop App..."
+sudo snap install bitwarden
+echo "Bitwarden Desktop App has been installed."
 
 # Install mkcert and trust store setup
 echo "Installing mkcert..."
