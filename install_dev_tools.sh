@@ -79,11 +79,25 @@ curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --d
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main" | sudo tee /etc/apt/sources.list.d/1password.list
 sudo apt update && sudo apt install -y 1password
 
-# Install Flatpak and Vaultwarden Desktop (Bitwarden alternative)
-echo "Installing Flatpak and Vaultwarden Desktop..."
-sudo apt install -y flatpak gnome-software-plugin-flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install -y flathub com.github.danielfreitas.vaultwarden
+# Install Bitwarden Desktop App
+echo "Installing Bitwarden Desktop..."
+wget -O bitwarden.AppImage "https://vault.bitwarden.com/download/?app=desktop&platform=linux"
+chmod +x bitwarden.AppImage
+# Move to a more accessible location if desired, like /opt or /usr/local/bin
+sudo mv bitwarden.AppImage /usr/local/bin/bitwarden
+
+# Optionally create a desktop shortcut or integrate into system menus
+echo "Creating desktop entry for Bitwarden..."
+echo "[Desktop Entry]
+Type=Application
+Name=Bitwarden
+Exec=/usr/local/bin/bitwarden
+Icon=bitwarden
+Terminal=false
+Categories=Utility;Security;" | sudo tee /usr/share/applications/bitwarden.desktop
+
+echo "Bitwarden Desktop has been installed and is available in your applications menu."
+
 
 # Install mkcert and trust store setup
 echo "Installing mkcert..."
