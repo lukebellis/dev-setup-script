@@ -13,7 +13,7 @@ This script automates the process of setting up a comprehensive development envi
     -   Programming languages and environment management: Installs Python, PHP, Node.js (via NVM), and Go, along with essential tools like Composer for PHP and pipx for isolated Python environment management.
     -   Version control and secure storage: Tools like 1Password and Bitwarden for secure password management.
 
-3.  Sets up containerisation and virtualization tools:
+3.  Sets up containerisation and virtualisation tools:
     -   Docker and Docker Compose: For managing and deploying software in containers.
     -   DDEV: A tool that simplifies the setup and management of local development environments.
 
