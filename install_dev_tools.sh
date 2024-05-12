@@ -16,9 +16,10 @@ sudo apt update && sudo apt install -y code
 
 # Install Postman
 echo "Installing Postman..."
-wget -qO- https://dl.pstmn.io/download/latest/linux64 | tar -xzf -
-sudo mv Postman /opt/Postman
+wget -qO- https://dl.pstmn.io/download/latest/linux64 | tar -xzf - -C /opt/
 sudo ln -s /opt/Postman/Postman /usr/local/bin/postman
+echo "Postman has been installed and linked."
+
 
 # Install Python
 echo "Installing Python..."
