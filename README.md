@@ -1,6 +1,6 @@
 ### Development Environment Setup Script for Ubuntu 24 LTS
 
-This script automates the process of setting up a comprehensive development environment tailored for modern software development. It includes a wide array of tools ranging from code editors and API clients to databases and containerization technologies.
+This script automates the process of setting up a comprehensive development environment tailored for modern software development. It includes a wide array of tools ranging from code editors and API clients to databases and containerisation technologies.
 
 #### What Does This Script Do?
 
