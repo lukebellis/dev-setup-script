@@ -146,6 +146,29 @@ wget -q -O - https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update && sudo apt install -y terraform
 
+# Install pipx for managing isolated Python environments
+echo "Installing pipx..."
+sudo apt install -y pipx
+pipx ensurepath
+
+# Install sgpt via pipx (replace 'shell-gpt' with the correct package name if different)
+echo "Installing sgpt via pipx..."
+pipx install shell-gpt
+
+# Reload profile to update PATH, effective in new terminal sessions
+echo "source $HOME/.bashrc" >> $HOME/.bash_profile
+
+# Check if sgpt is available in the PATH
+echo "Checking if sgpt is in PATH..."
+which sgpt || echo "sgpt not found in PATH"
+
+# Additional check to verify sgpt installation
+if ! which sgpt > /dev/null; then
+    echo "sgpt command not found, please check installation."
+else
+    echo "sgpt command is available."
+fi
+
 # Clean up
 echo "Cleaning up..."
 sudo apt autoremove -y
