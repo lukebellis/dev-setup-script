@@ -35,6 +35,15 @@ php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 php -r "unlink('composer-setup.php');"
 
+# Install Deployer for PHP deployments
+echo "Installing Deployer..."
+composer global require deployer/deployer
+echo "Deployer has been installed."
+
+# Ensure global composer bin is in PATH
+echo "export PATH=\$PATH:$HOME/.config/composer/vendor/bin" >> ~/.bashrc
+source ~/.bashrc
+
 # Install Node.js using NVM (Node Version Manager)
 echo "Installing NVM (Node Version Manager)..."
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
