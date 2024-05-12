@@ -52,6 +52,17 @@ echo "Node.js and npm have been installed:"
 node -v
 npm -v
 
+# Configure and install Yarn
+echo "Configuring Yarn repository..."
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+echo "Installing Yarn..."
+sudo apt update && sudo apt install -y yarn
+
+echo "Yarn has been installed:"
+yarn --version
+
 # Install Docker
 echo "Installing Docker..."
 sudo apt install -y apt-transport-https ca-certificates gnupg lsb-release
