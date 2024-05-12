@@ -20,7 +20,6 @@ wget -qO- https://dl.pstmn.io/download/latest/linux64 | tar -xzf - -C /opt/
 sudo ln -s /opt/Postman/Postman /usr/local/bin/postman
 echo "Postman has been installed and linked."
 
-
 # Install Python
 echo "Installing Python..."
 sudo apt install -y python3 python3-pip python3-venv
@@ -119,7 +118,6 @@ Categories=Utility;Security;" | sudo tee /usr/share/applications/bitwarden.deskt
 
 echo "Bitwarden Desktop has been installed and is available in your applications menu."
 
-
 # Install mkcert and trust store setup
 echo "Installing mkcert..."
 sudo apt install -y libnss3-tools
@@ -172,7 +170,7 @@ echo "Installing pipx..."
 sudo apt install -y pipx
 pipx ensurepath
 
-# Install sgpt via pipx (replace 'shell-gpt' with the correct package name if different)
+# Install sgpt via pipx
 echo "Installing sgpt via pipx..."
 pipx install shell-gpt
 
